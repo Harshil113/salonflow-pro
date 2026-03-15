@@ -22,13 +22,14 @@ app.get('/api/health', async (req, res) => {
 app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/clients', require('./routes/client.routes'));
 app.use('/api/services', require('./routes/service.routes'));
-app.use('/api/stats', require('./routes/stats.routes')); // NEW ROUTE ADDED
+app.use('/api/stats', require('./routes/stats.routes'));
+app.use('/api/pos', require('./routes/pos.routes')); // NEW POS ROUTES
 
 app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
-  console.log(`📊 Stats endpoint ready at /api/stats`);
+  console.log(`💰 POS endpoints ready at /api/pos`);
 });
 
 module.exports = app;
