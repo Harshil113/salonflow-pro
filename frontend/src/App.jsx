@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Sidebar from './components/layout/Sidebar';
 import Dashboard from './pages/Dashboard';
 import POS from './pages/POS';
-import Clients from './pages/Clients'; // Import Clients
+import Clients from './pages/Clients';
+import Calendar from './pages/Calendar'; // Import Calendar
 
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -14,8 +15,9 @@ function App() {
       <main className="ml-64 flex-1 p-8 overflow-y-auto h-screen">
         {activeTab === 'dashboard' && <Dashboard />}
         {activeTab === 'pos' && <POS />}
-        {activeTab === 'clients' && <Clients />} {/* Add Clients Page */}
-        {activeTab !== 'dashboard' && activeTab !== 'pos' && activeTab !== 'clients' && (
+        {activeTab === 'clients' && <Clients />}
+        {activeTab === 'calendar' && <Calendar />} {/* Add Calendar Page */}
+        {activeTab !== 'dashboard' && activeTab !== 'pos' && activeTab !== 'clients' && activeTab !== 'calendar' && (
           <div className="text-center mt-20 text-gray-500">
             <h2 className="text-2xl font-bold mb-2">{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</h2>
             <p>Module coming soon...</p>

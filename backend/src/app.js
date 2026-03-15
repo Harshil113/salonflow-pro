@@ -18,18 +18,19 @@ app.get('/api/health', async (req, res) => {
   catch (err) { res.status(500).json({ error: err.message }); }
 });
 
-// Routes
+// --- ROUTES ---
 app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/clients', require('./routes/client.routes'));
 app.use('/api/services', require('./routes/service.routes'));
 app.use('/api/stats', require('./routes/stats.routes'));
-app.use('/api/pos', require('./routes/pos.routes')); // NEW POS ROUTES
+app.use('/api/pos', require('./routes/pos.routes'));
+app.use('/api/appointments', require('./routes/appointment.routes')); // NEW CALENDAR ROUTE
 
 app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
-  console.log(`💰 POS endpoints ready at /api/pos`);
+  console.log(`📅 Appointments endpoint ready at /api/appointments`);
 });
 
 module.exports = app;
